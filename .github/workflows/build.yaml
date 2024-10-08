@@ -28,5 +28,6 @@ jobs:
         id: push
         uses: docker/build-push-action@v6
         with:
+          context: .
           push: true
           tags: ${{ format('ghcr.io/javiplx/{0}:{1}', env.IMAGE_NAME, github.ref_type == 'tag' && github.ref_name || 'latest') }}
